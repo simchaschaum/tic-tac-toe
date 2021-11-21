@@ -1,12 +1,14 @@
 const Display = (props) => {
-    const player = props.turn === 'x' ? 'X' : 'O';
+    const turnMsg = props.turn === 'x' ? "Player X, it's your turn!" : "Player O, it's your turn!";
+    const endMsg = props.winner === 'x' ? "Player X Wins!" 
+        : props.winner === 'o' ? "Player O Wins!"
+            : "Tie Game!";
 
     return(
         <div>
-            <h3>Player {player}, it's your turn!</h3>
-            {!props.winner ? null 
-                : "Tie Game" ? "Tie Game!"
-                    :<h4>Player {props.winner} is the winner!</h4>}
+            <h3>
+                {!props.winner ? turnMsg : endMsg}
+            </h3>
         </div>
     )
 }
