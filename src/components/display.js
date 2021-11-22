@@ -1,3 +1,5 @@
+import Reset from './reset';
+
 const Display = (props) => {
     const turnMsg = props.turn === 'x' ? "Player X, it's your turn!" : "Player O, it's your turn!";
     const endMsg = props.winner === 'x' ? "Player X Wins!" 
@@ -5,10 +7,14 @@ const Display = (props) => {
             : "Tie Game!";
 
     return(
-        <div>
-            <h3>
+        <div id="display">
+            <h4>
                 {!props.winner ? turnMsg : endMsg}
-            </h3>
+            </h4>
+            <Reset 
+                resetGame={props.resetGame}
+                winner={props.winner}
+            />
         </div>
     )
 }

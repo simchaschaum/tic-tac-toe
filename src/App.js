@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './App.css'
 import Game from './components/game';
-import Reset from './components/reset';
+import Header from './components/header';
 import Display from './components/display';
 
 function App() {
@@ -53,6 +53,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Game 
         turn={turn}
         board={board} 
@@ -61,8 +62,6 @@ function App() {
       <Display 
         turn={turn}
         winner={winner}
-      />
-      <Reset 
         resetGame={resetGame}
       />
     </div>

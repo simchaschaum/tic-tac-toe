@@ -1,7 +1,7 @@
 const Square = (props) => {
 
-       const show = props.squareState === null ? "?"
-        : props.squareState === 'x' ? 'X' : 'O'; // replace this with something nicer eventually
+       const show = props.squareState === null ? null
+        : props.squareState === 'x' ? 'X' : 'O'; 
 
     return(
         <div  className="square" onClick={()=>props.handleMove()}>
