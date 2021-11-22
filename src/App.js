@@ -10,6 +10,7 @@ function App() {
   const [turn, setTurn] = useState('x');
   const [winner, setWinner] = useState(null);
   const [winningSquares, setWinningSquares] = useState([]);
+  const [winDirection, setWinDirection] = useState(null);
 
    // triggered by click event in Square; sends index of square
   const handleMove = (index) => {
@@ -26,12 +27,16 @@ function App() {
       const winnerCombos = [[0,4,8],[2,4,6],[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]];
       let isFull = true;
       let win = null;
-      winnerCombos.forEach(arr => {
+      winnerCombos.forEach((arr,index) => {
         if(tb[arr[0]] && tb[arr[1]] && tb[arr[2]]){
           if(tb[arr[0]]===tb[arr[1]]){
             if(tb[arr[0]]===tb[arr[2]]){
               let ws = [arr[0],arr[1],arr[2]];
               setWinningSquares(ws);
+              let dir = index === 0 ? "45deg"
+                : index === 1 ? "135deg"
+                  : index === 2 || index === 3 || index === 4 ? "horiz" : "90deg";
+              setWinDirection(dir);
               win = tb[arr[0]];
               setWinner(win);
             }
@@ -51,6 +56,7 @@ function App() {
     setTurn('x');
     setWinner(null);
     setWinningSquares([]);
+    setWinDirection(null)
   }
 
   return (
@@ -61,6 +67,7 @@ function App() {
         board={board} 
         handleMove={index => handleMove(index)}
         winningSquares={winningSquares}
+        winDirection={winDirection}
       />
       <Display 
         turn={turn}

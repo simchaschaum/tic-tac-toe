@@ -74,11 +74,56 @@ body{
   background: var(--clr-main-alt)
 }
 
-#winner{
-  background-color: yellow;
+.winner, .winner-45, .winner-135, .winner-90{
+  position: relative;
+  /* not sure about overflow... */
+  overflow: hidden;  
 }
-#horiz{
-  border: 2px solid red;
-  width: 100px;
-  height: 5px;
+
+.winner::before{
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  z-index: 10;
+  background-image: linear-gradient(red, red);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: 0 50%;
+}
+.winner-45::before{
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  z-index: 10;
+  background-image: linear-gradient(red, red);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: 0 50%;
+  transform: rotate(45deg);
+}
+.winner-135::before{
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  z-index: 10;
+  background-image: linear-gradient(red, red);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: 0 50%;
+  transform: rotate(135deg);
+}
+.winner-90::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-image: linear-gradient(red, red);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: 0 50%;
+  transform: rotate(90deg);
 }
