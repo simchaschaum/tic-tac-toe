@@ -73,3 +73,12 @@ body{
 .square:hover{
   background: var(--clr-main-alt)
 }
+
+#winner{
+  background-color: yellow;
+}
+#horiz{
+  border: 2px solid red;
+  width: 100px;
+  height: 5px;
+}

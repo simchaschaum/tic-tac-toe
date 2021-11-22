@@ -15,6 +15,8 @@ const Game = (props) => {
                     <Square 
                         squareState = {props.board[index]}
                         handleMove={() => handleMove(index)}
+                        winningSquares={props.winningSquares}
+                        squareNum={index}
                     />
                 </div>
             )}

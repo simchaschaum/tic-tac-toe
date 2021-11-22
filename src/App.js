@@ -9,6 +9,7 @@ function App() {
   const [board, setBoard] = useState([null,null,null,null,null,null,null,null,null]);
   const [turn, setTurn] = useState('x');
   const [winner, setWinner] = useState(null);
+  const [winningSquares, setWinningSquares] = useState([]);
 
    // triggered by click event in Square; sends index of square
   const handleMove = (index) => {
@@ -29,9 +30,9 @@ function App() {
         if(tb[arr[0]] && tb[arr[1]] && tb[arr[2]]){
           if(tb[arr[0]]===tb[arr[1]]){
             if(tb[arr[0]]===tb[arr[2]]){
-              console.log(`${tb[arr[0]]} - ${tb[arr[1]]} - ${tb[arr[2]]}`)
+              let ws = [arr[0],arr[1],arr[2]];
+              setWinningSquares(ws);
               win = tb[arr[0]];
-              console.log(win)
               setWinner(win);
             }
           }
@@ -49,6 +50,7 @@ function App() {
     setBoard([null,null,null,null,null,null,null,null,null]);
     setTurn('x');
     setWinner(null);
+    setWinningSquares([]);
   }
 
   return (
@@ -58,6 +60,7 @@ function App() {
         turn={turn}
         board={board} 
         handleMove={index => handleMove(index)}
+        winningSquares={winningSquares}
       />
       <Display 
         turn={turn}
@@ -70,3 +73,6 @@ function App() {
 
 export default App;
 
+/*
+
+*/
