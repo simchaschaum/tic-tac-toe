@@ -70,8 +70,10 @@ body{
   justify-content: center;
   align-items: center;
 }
-.square:hover{
-  background: var(--clr-main-alt)
+@media(min-width:800px){
+  .square:hover{
+    background: var(--clr-main-alt)
+  }
 }
 
 .winner, .winner-45, .winner-135, .winner-90{
