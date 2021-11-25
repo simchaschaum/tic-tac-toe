@@ -47,8 +47,10 @@ body{
   border-radius: 3px;
   background-color: white;
 }
-#display button:hover{
-  background-color: var(--clr-sec-alt);
+@media(min-width: 800px){
+  #display button:hover{
+    background-color: var(--clr-sec-alt);
+  }
 }
 
 /* Game Board */
